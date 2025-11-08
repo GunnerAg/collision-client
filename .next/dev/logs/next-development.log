@@ -1,0 +1,206 @@
+[00:00:02.159] Server  LOG      ✓ Ready in 1456ms
+[00:00:04.597] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.065] Browser LOG     sokcet {}
+[00:00:05.065] Browser LOG     [WS] Connection established
+[00:00:24.264] Server  LOG      ✓ Compiled in 72ms
+[00:00:26.503] Server  LOG      ✓ Compiled in 70ms
+[00:00:27.063] Browser LOG     sokcet {}
+[00:00:27.063] Browser LOG     [WS] Connection closed
+[00:00:27.063] Browser LOG     [WS] Connection established
+[00:00:31.310] Server  LOG      ✓ Compiled in 65ms
+[00:00:32.057] Browser LOG     sokcet {}
+[00:00:32.057] Browser LOG     [WS] Connection closed
+[00:00:32.057] Browser LOG     [WS] Connection established
+[00:00:37.833] Server  LOG      ✓ Compiled in 64ms
+[00:00:39.319] Server  LOG      ✓ Compiled in 59ms
+[00:00:40.050] Browser ERROR   ./hooks/useWebSocketFeed.ts:6:7
+Ecmascript file had an error
+  4 |
+  5 | const WS_URL = process.env.NEXT_PUBLIC_WS_URL || 'wss://fallback.ws.url/ws';
+> 6 | const WS_URL = process.env.NEXT_PUBLIC_WS_URL || 'wss://fallback.ws.url/ws';
+    |       ^^^^^^
+  7 |
+  8 | const WALLET_BUFFER_DELAY = 100; // Recopilar mensajes por 100 ms antes de actualizar el estado
+  9 |
+
+the name `WS_URL` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./hooks/useWebSocketFeed.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hooks/useWebSocketFeed.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:00:40.643] Server  LOG      ✓ Compiled in 65ms
+[00:00:41.060] Browser ERROR   ./hooks/useWebSocketFeed.ts:8:7
+Ecmascript file had an error
+   6 | const WALLET_BUFFER_DELAY = process.env.NEXT_PUBLIC_WS_URL || 'wss://fallback.ws.url/ws';
+   7 |
+>  8 | const WALLET_BUFFER_DELAY = 100; // Recopilar mensajes por 100 ms antes de actualizar el estado
+     |       ^^^^^^^^^^^^^^^^^^^
+   9 |
+  10 | // --- Funciones Auxiliares ---
+  11 | const formatUptime = (seconds: number): string => {
+
+the name `WALLET_BUFFER_DELAY` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./hooks/useWebSocketFeed.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hooks/useWebSocketFeed.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:00:45.970] Server  LOG      ✓ Compiled in 70ms
+[00:00:47.064] Browser ERROR   ./hooks/useWebSocketFeed.ts:8:7
+Ecmascript file had an error
+   6 | const WALLET_BUFFER_DELAY = process.env.NEXT_PUBLIC_WS_WALLET_BUFFER_DELAY || 'wss://fallback.ws.url/ws';
+   7 |
+>  8 | const WALLET_BUFFER_DELAY = 100; // Recopilar mensajes por 100 ms antes de actualizar el estado
+     |       ^^^^^^^^^^^^^^^^^^^
+   9 |
+  10 | // --- Funciones Auxiliares ---
+  11 | const formatUptime = (seconds: number): string => {
+
+the name `WALLET_BUFFER_DELAY` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./hooks/useWebSocketFeed.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hooks/useWebSocketFeed.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:00:49.509] Server  LOG      ✓ Compiled in 59ms
+[00:00:50.052] Browser ERROR   ./hooks/useWebSocketFeed.ts:8:7
+Ecmascript file had an error
+   6 | const WALLET_BUFFER_DELAY = process.env.NEXT_PUBLIC_WS_WALLET_BUFFER_DELAY || 'wss://100.ws.url/ws';
+   7 |
+>  8 | const WALLET_BUFFER_DELAY = 100; // Recopilar mensajes por 100 ms antes de actualizar el estado
+     |       ^^^^^^^^^^^^^^^^^^^
+   9 |
+  10 | // --- Funciones Auxiliares ---
+  11 | const formatUptime = (seconds: number): string => {
+
+the name `WALLET_BUFFER_DELAY` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./hooks/useWebSocketFeed.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hooks/useWebSocketFeed.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:00:52.378] Server  LOG      ✓ Compiled in 61ms
+[00:00:53.058] Browser ERROR   ./hooks/useWebSocketFeed.ts:8:7
+Ecmascript file had an error
+   6 | const WALLET_BUFFER_DELAY = process.env.NEXT_PUBLIC_WS_WALLET_BUFFER_DELAY || '100.ws.url/ws';
+   7 |
+>  8 | const WALLET_BUFFER_DELAY = 100; // Recopilar mensajes por 100 ms antes de actualizar el estado
+     |       ^^^^^^^^^^^^^^^^^^^
+   9 |
+  10 | // --- Funciones Auxiliares ---
+  11 | const formatUptime = (seconds: number): string => {
+
+the name `WALLET_BUFFER_DELAY` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./hooks/useWebSocketFeed.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hooks/useWebSocketFeed.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:00:54.682] Server  LOG      ✓ Compiled in 61ms
+[00:00:55.052] Browser ERROR   ./hooks/useWebSocketFeed.ts:8:7
+Ecmascript file had an error
+   6 | const WALLET_BUFFER_DELAY = process.env.NEXT_PUBLIC_WS_WALLET_BUFFER_DELAY || '100';
+   7 |
+>  8 | const WALLET_BUFFER_DELAY = 100; // Recopilar mensajes por 100 ms antes de actualizar el estado
+     |       ^^^^^^^^^^^^^^^^^^^
+   9 |
+  10 | // --- Funciones Auxiliares ---
+  11 | const formatUptime = (seconds: number): string => {
+
+the name `WALLET_BUFFER_DELAY` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./hooks/useWebSocketFeed.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hooks/useWebSocketFeed.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:01:05.854] Server  LOG      ✓ Compiled in 88ms
+[00:01:06.886] Server  LOG      ✓ Compiled in 66ms
+[00:01:07.055] Browser ERROR   ./hooks/useWebSocketFeed.ts:102:66
+Parsing ecmascript source code failed
+  100 |               processWalletBuffer();
+  101 |               bufferTimerRef.current = null; // Resetear el timer después de procesar
+> 102 |             }, parseInt(WALLET_BUFFER_DELAY) as unknown as number;
+      |                                                                  ^
+  103 |           }
+  104 |         }
+  105 |       } catch (error) {
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./hooks/useWebSocketFeed.ts [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hooks/useWebSocketFeed.ts [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:01:38.644] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:38.759] Browser LOG     sokcet {}
+[00:01:39.053] Browser LOG     [WS] Connection established
+[00:03:51.660] Server  LOG      ✓ Compiled in 62ms
+[00:03:54.103] Server  LOG      ✓ Compiled in 66ms
+[02:35:28.564] Browser LOG     [WS] Connection closed
+[03:13:30.843] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:13:30.976] Browser LOG     sokcet {}
+[03:13:31.324] Browser ERROR   [WS] Error: {"isTrusted":true}
+[03:13:31.324] Browser LOG     [WS] Connection closed
+[03:57:49.517] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:57:49.659] Browser LOG     sokcet {}
+[03:57:50.006] Browser LOG     [WS] Connection established
+[03:58:17.887] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:58:18.000] Browser LOG     sokcet {}
+[03:58:18.314] Browser LOG     [WS] Connection established
+[03:58:20.943] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:58:21.061] Browser LOG     sokcet {}
+[03:58:21.414] Browser LOG     [WS] Connection established
+[03:59:57.961] Server  LOG        Reload env: .env.local
+[03:59:58.316] Server  LOG      ✓ Compiled in 258ms
+[04:00:32.336] Server  LOG        Reload env: .env.local
+[04:00:32.551] Server  LOG      ✓ Compiled in 72ms
+[04:00:33.769] Server  LOG        Reload env: .env.local
+[04:00:33.855] Server  LOG      ✓ Compiled in 64ms
+[04:00:45.195] Server  LOG        Reload env: .env.local
+[04:00:45.378] Server  LOG      ✓ Compiled in 68ms
+[04:01:03.842] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:01:03.973] Browser LOG     sokcet {}
+[04:01:04.295] Browser LOG     [WS] Connection established

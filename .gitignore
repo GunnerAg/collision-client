@@ -1,0 +1,12 @@
+# Dependencias de Node
+/node_modules
+
+# Bloqueo de dependencias (para Yarn, npm, o pnpm)
+package-lock.json  # Para npm (lo que probablemente usas)
+
+# Archivos de caché o temporales comunes
+.DS_Store
+.env
+/dist
+/build
+.next # Importante si usas Next.js (como parece ser tu caso)

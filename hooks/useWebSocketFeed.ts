@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 // Asegúrate de que 'types' contiene las definiciones de WalletInfo, Metrics, RawWalletData, y MetricsMessage
-import { WalletInfo, Metrics, RawWalletData, MetricsMessage } from '../types'; 
+import { WalletInfo, Metrics, RawWalletData, MetricsMessage } from '../types';
 
-const WS_URL = 'wss://ws.gunnerandersen.com/ws';
-const WALLET_BUFFER_DELAY = 100; // Recopilar mensajes por 100 ms antes de actualizar el estado
+const WS_URL = process.env.NEXT_PUBLIC_WS_URL || 'wss://fallback.ws.url/ws';
+const WALLET_BUFFER_DELAY = process.env.NEXT_PUBLIC_WS_WALLET_BUFFER_DELAY || '100';
 
 // --- Funciones Auxiliares ---
 const formatUptime = (seconds: number): string => {
@@ -14,7 +14,7 @@ const formatUptime = (seconds: number): string => {
   return `${d}d ${h}h ${m}m ${s}s`;
 };
 
-const isMetricsMessage = (msg: any): msg is MetricsMessage => {
+const isMetricsMessage = (msg: MetricsMessage): msg is MetricsMessage => {
   return msg.type === 'metrics_snapshot' && msg.data !== undefined;
 };
 
@@ -32,7 +32,7 @@ export const useWebSocketFeed = () => {
   // 2. Referencias para el Buffer de Wallets (Optimización de Rendimiento)
   const walletBufferRef = useRef<WalletInfo[]>([]);
   // Usamos 'number | null' para tipar el ID del timer
-  const bufferTimerRef = useRef<number | null>(null); 
+  const bufferTimerRef = useRef<number | null>(null);
 
   /**
    * Procesa el buffer acumulado de wallets y actualiza el estado de React una vez.
@@ -49,23 +49,26 @@ export const useWebSocketFeed = () => {
       // Concatenar el nuevo lote (al inicio) y aplicar el límite de 100
       const updatedWallets = [...newWallets, ...prevWallets];
       // Mantenemos solo los 100 más recientes
-      return updatedWallets.slice(0, 100); 
+      return updatedWallets.slice(0, 100);
     });
   };
 
   useEffect(() => {
+    // CAMBIO CLAVE: Utilizamos la constante WS_URL que ya lee la variable de entorno
     const socket = new WebSocket(WS_URL);
-    console.log('sokcet', socket)
+    console.log('sokcet', socket) // Mantenemos este log para debugging
+
     socket.onopen = () => console.log('[WS] Connection established');
     socket.onclose = () => console.log('[WS] Connection closed');
     socket.onerror = (error) => console.error('[WS] Error:', error);
 
+    // ... (El resto de la lógica onmessage se mantiene igual)
     socket.onmessage = (event) => {
       try {
         const message = JSON.parse(event.data);
 
         if (isMetricsMessage(message)) {
-          // Actualización directa de Métricas (1 vez/segundo - fluidez asegurada por el backend Go)
+          // Actualización directa de Métricas
           const data = message.data;
           setMetrics({
             walletsDerived: data.total_wallets_derived,
@@ -74,7 +77,7 @@ export const useWebSocketFeed = () => {
             uptime: formatUptime(data.total_time_up_seconds),
           });
         } else {
-          // Lógica del Buffer para Wallets (Optimización)
+          // Lógica del Buffer para Wallets
           const data: RawWalletData = message;
           const newWallet: WalletInfo = {
             coin: data.coin,
@@ -89,14 +92,14 @@ export const useWebSocketFeed = () => {
 
           // 1. Añadir al buffer
           walletBufferRef.current.push(newWallet);
-          
+
           // 2. Si no hay un timer activo, iniciar uno para procesar el lote
           if (!bufferTimerRef.current) {
             // Usamos window.setTimeout para obtener el tipo correcto de retorno
             bufferTimerRef.current = window.setTimeout(() => {
               processWalletBuffer();
               bufferTimerRef.current = null; // Resetear el timer después de procesar
-            }, WALLET_BUFFER_DELAY) as unknown as number; 
+            }, parseInt(WALLET_BUFFER_DELAY)) as unknown as number;
           }
         }
       } catch (error) {
@@ -111,9 +114,9 @@ export const useWebSocketFeed = () => {
         clearTimeout(bufferTimerRef.current);
         bufferTimerRef.current = null;
       }
-      walletBufferRef.current = []; 
+      walletBufferRef.current = [];
     };
-  }, []); 
+  }, []);
 
   return { metrics, wallets };
 };
