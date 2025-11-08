@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+html {
+  scroll-snap-type: y mandatory;
+}
+body {
+  overscroll-behavior-y: contain;
+}
